@@ -49,9 +49,16 @@ fileprivate extension AppDelegate {
     func startInitialScreen() {
         let vc = LoginViewController()
         let nc = UINavigationController(rootViewController: vc)
+        nc.delegate = self
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = nc
         window?.makeKeyAndVisible()
+    }
+}
+
+extension AppDelegate: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        viewController.edgesForExtendedLayout = []
     }
 }
 
