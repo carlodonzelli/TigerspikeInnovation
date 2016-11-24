@@ -49,14 +49,13 @@ struct Network {
     static func eventRequest(httpMethod: HTTPMethod, requestType: RequestType, completionHandler: @escaping (Bool) -> Void) {
         
         let baseURL = "http://vinh-pc.infra.tigerspike.com/Team5InnovationDay/api/calendar"
+        let fullURL = baseURL + requestType.url
         
-        let stringURL = requestType.url.replacingOccurrences(of: " ", with: "%20")
+        let stringURL = fullURL.replacingOccurrences(of: " ", with: "%20")
 
         var request = URLRequest(url: URL(string: "\(baseURL)\(stringURL)")!)
         request.httpMethod = httpMethod.description
         
-//        let postString = "id=13&name=Jack"
-//        request.httpBody = postString.data(using: .utf8)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
