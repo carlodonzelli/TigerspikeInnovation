@@ -20,7 +20,7 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dX6-NZ-8ep">
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="667" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-Cs-kSj">
+                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="667" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-Cs-kSj">
                             <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
                         </stackView>
                     </subviews>
