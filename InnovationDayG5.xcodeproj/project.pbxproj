@@ -10,6 +10,8 @@
 		2A6DEB701DE6919A007E5041 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DEB6E1DE6919A007E5041 /* LoginViewController.swift */; };
 		2A6DEB711DE6919A007E5041 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6DEB6F1DE6919A007E5041 /* LoginViewController.xib */; };
 		2A6DEB731DE691B3007E5041 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DEB721DE691B3007E5041 /* LoginViewModel.swift */; };
+		2A9A36DD1DE69CCA006BDC18 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9A36DC1DE69CCA006BDC18 /* LocalAuthentication.framework */; };
+		2A9A36E11DE69D63006BDC18 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A36E01DE69D63006BDC18 /* UIViewController+Extensions.swift */; };
 		B6170A5B1DE68E910091EF28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6170A5A1DE68E910091EF28 /* AppDelegate.swift */; };
 		B6170A5D1DE68E910091EF28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6170A5C1DE68E910091EF28 /* ViewController.swift */; };
 		B6170A601DE68E910091EF28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6170A5E1DE68E910091EF28 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 		2A6DEB6E1DE6919A007E5041 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2A6DEB6F1DE6919A007E5041 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		2A6DEB721DE691B3007E5041 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2A9A36DC1DE69CCA006BDC18 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		2A9A36E01DE69D63006BDC18 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		B6170A571DE68E910091EF28 /* InnovationDayG5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnovationDayG5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6170A5A1DE68E910091EF28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6170A5C1DE68E910091EF28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9A36DD1DE69CCA006BDC18 /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,11 +64,36 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		2A9A36DB1DE69CCA006BDC18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A9A36DC1DE69CCA006BDC18 /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A9A36DE1DE69D4E006BDC18 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				2A9A36DF1DE69D53006BDC18 /* Extensions */,
+			);
+			name = Commons;
+			sourceTree = "<group>";
+		};
+		2A9A36DF1DE69D53006BDC18 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2A9A36E01DE69D63006BDC18 /* UIViewController+Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		B6170A4E1DE68E910091EF28 = {
 			isa = PBXGroup;
 			children = (
 				B6170A591DE68E910091EF28 /* InnovationDayG5 */,
 				B6170A581DE68E910091EF28 /* Products */,
+				2A9A36DB1DE69CCA006BDC18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +108,7 @@
 		B6170A591DE68E910091EF28 /* InnovationDayG5 */ = {
 			isa = PBXGroup;
 			children = (
+				2A9A36DE1DE69D4E006BDC18 /* Commons */,
 				2A6DEB6B1DE69157007E5041 /* Interface */,
 				B6170A5A1DE68E910091EF28 /* AppDelegate.swift */,
 				B6170A5C1DE68E910091EF28 /* ViewController.swift */,
@@ -166,6 +197,7 @@
 				2A6DEB701DE6919A007E5041 /* LoginViewController.swift in Sources */,
 				B6170A5D1DE68E910091EF28 /* ViewController.swift in Sources */,
 				B6170A5B1DE68E910091EF28 /* AppDelegate.swift in Sources */,
+				2A9A36E11DE69D63006BDC18 /* UIViewController+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

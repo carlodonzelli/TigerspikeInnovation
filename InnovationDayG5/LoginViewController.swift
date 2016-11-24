@@ -28,10 +28,12 @@ class LoginViewController: UIViewController {
     
     func loginButtonTapped() {
         
-        guard viewModel.canLogin else { return }
+        guard viewModel.canLogin else {
+            showError(message: "Please enter a username or password")
+            return
+        }
         
-        //Push next screen here
-        
+        pushMainViewController()
     }
     
     func textFieldChanged(textField: UITextField) {
@@ -40,6 +42,14 @@ class LoginViewController: UIViewController {
         } else if textField == passwordTextField {
             viewModel.password = textField.text ?? ""
         }
+    }
+}
+
+//MARK: - Private
+fileprivate extension LoginViewController {
+    func pushMainViewController() {
+        //Carlo enter code here
+        
     }
 }
 
