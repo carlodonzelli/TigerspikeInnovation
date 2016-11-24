@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  InnovationDayG5
 //
 //  Created by Carlo Donzelli on 24/11/16.
@@ -8,30 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class HomeViewController: UIViewController {
+
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
     
-    let viewModel = ViewModel()
-
+    let viewModel = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         setupSpeech()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
 // IBActions
-extension ViewController {
+extension HomeViewController {
     
     @IBAction func microphoneTapped(_ sender: AnyObject) {
         if viewModel.isAudioEngineRunning() {
@@ -49,8 +47,8 @@ extension ViewController {
 
 
 // private
-private extension ViewController {
-
+private extension HomeViewController {
+    
     func setupView() {
         microphoneButton.isEnabled = false
     }
@@ -64,5 +62,5 @@ private extension ViewController {
             self.microphoneButton.isEnabled = isSpeechAvailable
         }
     }
-}
 
+}

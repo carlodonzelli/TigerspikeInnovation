@@ -9,7 +9,7 @@
 import Foundation
 import Speech
 
-class ViewModel: NSObject {
+class HomeViewModel: NSObject {
     
     var speechAvailableBlock: ((Bool) -> Void)?
     let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-AU"))!
@@ -126,7 +126,7 @@ class ViewModel: NSObject {
     
 }
 
-extension ViewModel: SFSpeechRecognizerDelegate {
+extension HomeViewModel: SFSpeechRecognizerDelegate {
     
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         speechAvailableBlock?(available)
