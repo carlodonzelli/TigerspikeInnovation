@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var microphoneButton: UIButton!
     
     let viewModel = HomeViewModel()
+    var userText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +34,19 @@ extension HomeViewController {
     
     @IBAction func microphoneTapped(_ sender: AnyObject) {
         if viewModel.isAudioEngineRunning() {
-            
+        
             microphoneButton.isEnabled = false
             microphoneButton.setTitle("🎙", for: .normal)
+            if let eventText = userText {
+            viewModel.sendRequest(text: eventText, handler: { (isEventCreated) in
+                self.showError(with: "Success", message: "Event created")
+            })
+            }
         } else {
+            
             viewModel.startRecording(handler: { (text) in
                 self.textView.text = text
+                self.userText = (self.userText ?? "") + (text ?? "")
             })
             microphoneButton.setTitle("🎶", for: .normal)
         }
@@ -54,6 +62,7 @@ private extension HomeViewController {
     }
     
     func setupSpeech() {
+        
         viewModel.requestSpeechAuth { (isButtonEnabled) in
             self.microphoneButton.isEnabled = isButtonEnabled
         }

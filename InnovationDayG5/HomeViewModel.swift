@@ -121,7 +121,11 @@ class HomeViewModel: NSObject {
             print("audioEngine couldn't start because of an error.")
         }
         
-        handler("Say something, I'm listening!")
+        handler("")
+    }
+    
+    func sendRequest(text: String, handler: @escaping (Bool) -> Void) {
+        Network.eventRequest(httpMethod: .POST, requestType: .CreateEvent(text), completionHandler: handler)
     }
     
 }
