@@ -26,6 +26,27 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func touchIdButtonTapped(_ sender: AnyObject) {
+        let authenticationContext = LAContext()
+        
+        var error: NSError?
+        
+        //Check if the device has a fingerpprint sensor
+        //If not, show the user an alert view and bail out
+        guard authenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+            showError(message: error?.localizedDescription ?? "Sorry, cannot perform touch ID")
+            return
+        }
+        
+        authenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Login via touch ID") {
+            success, error in
+            
+            if success {
+                self.pushMainViewController()
+            } else {
+                self.showError(message: error?.localizedDescription ?? "")
+            }
+        }
+        
         
     }
     
