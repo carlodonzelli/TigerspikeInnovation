@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     var passwordTextField: UITextField!
     var loginButton: UIButton!
     
+    let viewModel = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +27,19 @@ class LoginViewController: UIViewController {
     }
     
     func loginButtonTapped() {
+        
+        guard viewModel.canLogin else { return }
+        
+        //Push next screen here
+        
+    }
     
+    func textFieldChanged(textField: UITextField) {
+        if textField == usernameTextField {
+            viewModel.username = textField.text ?? ""
+        } else if textField == passwordTextField {
+            viewModel.password = textField.text ?? ""
+        }
     }
 }
 
@@ -33,12 +47,14 @@ class LoginViewController: UIViewController {
 fileprivate extension LoginViewController {
     func setupUsernameField() {
         usernameTextField = UITextField()
+        usernameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         usernameTextField.placeholder = "Enter Username"
         contentStackView.addArrangedSubview(usernameTextField)
     }
     
     func setupPasswordField() {
         passwordTextField = UITextField()
+        passwordTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         passwordTextField.placeholder = "Enter Password"
         contentStackView.addArrangedSubview(passwordTextField)
     }

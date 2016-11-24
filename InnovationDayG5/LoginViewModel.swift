@@ -9,5 +9,13 @@
 import Foundation
 
 class LoginViewModel {
-    
+    var username = ""
+    var password = ""
+}
+
+//MARK: - Public
+extension LoginViewModel {
+    var canLogin: Bool {
+        return username.characters.count > 0 && password.characters.count > 0
+    }
 }
