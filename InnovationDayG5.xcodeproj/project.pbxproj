@@ -19,6 +19,7 @@
 		B6170A651DE68E910091EF28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6170A631DE68E910091EF28 /* LaunchScreen.storyboard */; };
 		B6170A6D1DE691600091EF28 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6170A6C1DE691600091EF28 /* ViewModel.swift */; };
 		B6170A711DE6A0340091EF28 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6170A701DE6A0340091EF28 /* ViewController.xib */; };
+		B6170A741DE6A5B10091EF28 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6170A731DE6A5B10091EF28 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B6170A661DE68E910091EF28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6170A6C1DE691600091EF28 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		B6170A701DE6A0340091EF28 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		B6170A731DE6A5B10091EF28 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		B6170A591DE68E910091EF28 /* InnovationDayG5 */ = {
 			isa = PBXGroup;
 			children = (
+				B6170A721DE6A4F50091EF28 /* Network */,
 				2A9A36DE1DE69D4E006BDC18 /* Commons */,
 				2A6DEB6B1DE69157007E5041 /* Interface */,
 				B6170A5A1DE68E910091EF28 /* AppDelegate.swift */,
@@ -132,6 +135,14 @@
 				B6170A701DE6A0340091EF28 /* ViewController.xib */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		B6170A721DE6A4F50091EF28 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B6170A731DE6A5B10091EF28 /* Network.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +225,7 @@
 				B6170A5D1DE68E910091EF28 /* ViewController.swift in Sources */,
 				B6170A6D1DE691600091EF28 /* ViewModel.swift in Sources */,
 				B6170A5B1DE68E910091EF28 /* AppDelegate.swift in Sources */,
+				B6170A741DE6A5B10091EF28 /* Network.swift in Sources */,
 				2A9A36E11DE69D63006BDC18 /* UIViewController+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
