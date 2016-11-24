@@ -35,12 +35,12 @@ extension HomeViewController {
         if viewModel.isAudioEngineRunning() {
             
             microphoneButton.isEnabled = false
-            microphoneButton.setTitle("Start Recording", for: .normal)
+            microphoneButton.setTitle("🎙", for: .normal)
         } else {
             viewModel.startRecording(handler: { (text) in
                 self.textView.text = text
             })
-            microphoneButton.setTitle("Stop Recording", for: .normal)
+            microphoneButton.setTitle("🎶", for: .normal)
         }
     }
 }
