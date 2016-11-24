@@ -12,6 +12,8 @@ import UIKit
 extension UIViewController {
     func showError(with title: String = "Error", message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.present(alert, animated: true, completion: nil)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }

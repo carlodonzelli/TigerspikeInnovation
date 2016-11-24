@@ -8,8 +8,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="InnovationDayG5" customModuleProvider="target">
             <connections>
-                <outlet property="contentStackView" destination="kSm-Cs-kSj" id="ahb-9k-6QE"/>
-                <outlet property="scrollView" destination="dX6-NZ-8ep" id="x9L-vh-5I6"/>
+                <outlet property="loginButton" destination="F0S-Wq-DEr" id="tEZ-yS-aWz"/>
+                <outlet property="passwordTextField" destination="Zt2-N8-VDk" id="Z5N-dS-Cqn"/>
+                <outlet property="touchIdButton" destination="bmn-xD-dZo" id="SD8-kl-16y"/>
+                <outlet property="usernameTextField" destination="tCR-SE-4ZP" id="kzA-sT-7LA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,27 +20,41 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dX6-NZ-8ep">
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="667" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-Cs-kSj">
-                            <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
-                        </stackView>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="kSm-Cs-kSj" firstAttribute="width" secondItem="dX6-NZ-8ep" secondAttribute="width" id="0Ht-fh-SCG"/>
-                        <constraint firstItem="kSm-Cs-kSj" firstAttribute="top" secondItem="dX6-NZ-8ep" secondAttribute="top" id="BpL-bv-hVO"/>
-                        <constraint firstItem="kSm-Cs-kSj" firstAttribute="leading" secondItem="dX6-NZ-8ep" secondAttribute="leading" id="DQF-Uc-BAc"/>
-                        <constraint firstAttribute="bottom" secondItem="kSm-Cs-kSj" secondAttribute="bottom" id="L6S-73-1by"/>
-                        <constraint firstAttribute="trailing" secondItem="kSm-Cs-kSj" secondAttribute="trailing" id="SVR-2i-Tq4"/>
-                    </constraints>
-                </scrollView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tCR-SE-4ZP">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zt2-N8-VDk">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmn-xD-dZo">
+                    <state key="normal" title="Touch ID"/>
+                    <connections>
+                        <action selector="touchIdButtonTapped:" destination="-1" eventType="touchUpInside" id="Sot-0i-zHY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0S-Wq-DEr">
+                    <state key="normal" title="Login"/>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="Oaz-bw-7uv"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="dX6-NZ-8ep" secondAttribute="trailing" id="DtU-v7-zJC"/>
-                <constraint firstItem="dX6-NZ-8ep" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="o3m-lb-kY7"/>
-                <constraint firstItem="dX6-NZ-8ep" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wC9-hW-5AO"/>
-                <constraint firstAttribute="bottom" secondItem="dX6-NZ-8ep" secondAttribute="bottom" id="yul-al-Qtn"/>
+                <constraint firstItem="bmn-xD-dZo" firstAttribute="top" secondItem="Zt2-N8-VDk" secondAttribute="bottom" constant="20" id="3zW-0W-Ott"/>
+                <constraint firstItem="Zt2-N8-VDk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="440-gg-lOX"/>
+                <constraint firstAttribute="trailing" secondItem="Zt2-N8-VDk" secondAttribute="trailing" constant="20" id="5qn-cD-Oih"/>
+                <constraint firstItem="F0S-Wq-DEr" firstAttribute="top" secondItem="bmn-xD-dZo" secondAttribute="bottom" constant="20" id="CnK-rY-ePI"/>
+                <constraint firstItem="bmn-xD-dZo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="E7X-58-4su"/>
+                <constraint firstItem="Zt2-N8-VDk" firstAttribute="top" secondItem="tCR-SE-4ZP" secondAttribute="bottom" constant="20" id="PQb-ji-50Q"/>
+                <constraint firstItem="F0S-Wq-DEr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="feV-ya-y0O"/>
+                <constraint firstAttribute="trailing" secondItem="tCR-SE-4ZP" secondAttribute="trailing" constant="20" id="gGE-YA-Fp3"/>
+                <constraint firstItem="tCR-SE-4ZP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="lDc-ht-yYf"/>
+                <constraint firstItem="tCR-SE-4ZP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="mak-Xi-Hfs"/>
             </constraints>
             <point key="canvasLocation" x="41.5" y="59.5"/>
         </view>
