@@ -45,7 +45,7 @@ extension HomeViewController {
         } else {
             
             viewModel.startRecording(handler: { (text) in
-                self.textView.text = text
+                self.textView.text = (self.userText ?? "") + (text ?? "")
                 self.userText = (self.userText ?? "") + (text ?? "")
             })
             microphoneButton.setTitle("🎶", for: .normal)
