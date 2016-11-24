@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 // IBActions
 extension ViewController {
     
-    func microphoneTapped(_ sender: AnyObject) {
+    @IBAction func microphoneTapped(_ sender: AnyObject) {
         if viewModel.isAudioEngineRunning() {
             
             microphoneButton.isEnabled = false
