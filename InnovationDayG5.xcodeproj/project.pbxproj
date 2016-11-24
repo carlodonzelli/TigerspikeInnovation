@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A6DEB701DE6919A007E5041 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DEB6E1DE6919A007E5041 /* LoginViewController.swift */; };
+		2A6DEB711DE6919A007E5041 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6DEB6F1DE6919A007E5041 /* LoginViewController.xib */; };
+		2A6DEB731DE691B3007E5041 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DEB721DE691B3007E5041 /* LoginViewModel.swift */; };
 		B6170A5B1DE68E910091EF28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6170A5A1DE68E910091EF28 /* AppDelegate.swift */; };
 		B6170A5D1DE68E910091EF28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6170A5C1DE68E910091EF28 /* ViewController.swift */; };
 		B6170A601DE68E910091EF28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6170A5E1DE68E910091EF28 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A6DEB6E1DE6919A007E5041 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2A6DEB6F1DE6919A007E5041 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		2A6DEB721DE691B3007E5041 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B6170A571DE68E910091EF28 /* InnovationDayG5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnovationDayG5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6170A5A1DE68E910091EF28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6170A5C1DE68E910091EF28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +41,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A6DEB6B1DE69157007E5041 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				2A6DEB6C1DE6915E007E5041 /* Login */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		2A6DEB6C1DE6915E007E5041 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2A6DEB6E1DE6919A007E5041 /* LoginViewController.swift */,
+				2A6DEB6F1DE6919A007E5041 /* LoginViewController.xib */,
+				2A6DEB721DE691B3007E5041 /* LoginViewModel.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		B6170A4E1DE68E910091EF28 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +78,7 @@
 		B6170A591DE68E910091EF28 /* InnovationDayG5 */ = {
 			isa = PBXGroup;
 			children = (
+				2A6DEB6B1DE69157007E5041 /* Interface */,
 				B6170A5A1DE68E910091EF28 /* AppDelegate.swift */,
 				B6170A5C1DE68E910091EF28 /* ViewController.swift */,
 				B6170A5E1DE68E910091EF28 /* Main.storyboard */,
@@ -96,7 +121,6 @@
 				TargetAttributes = {
 					B6170A561DE68E910091EF28 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = UFE3YM6773;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,6 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6DEB711DE6919A007E5041 /* LoginViewController.xib in Resources */,
 				B6170A651DE68E910091EF28 /* LaunchScreen.storyboard in Resources */,
 				B6170A621DE68E910091EF28 /* Assets.xcassets in Resources */,
 				B6170A601DE68E910091EF28 /* Main.storyboard in Resources */,
@@ -137,6 +162,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6DEB731DE691B3007E5041 /* LoginViewModel.swift in Sources */,
+				2A6DEB701DE6919A007E5041 /* LoginViewController.swift in Sources */,
 				B6170A5D1DE68E910091EF28 /* ViewController.swift in Sources */,
 				B6170A5B1DE68E910091EF28 /* AppDelegate.swift in Sources */,
 			);
@@ -259,7 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UFE3YM6773;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InnovationDayG5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tigerspike.InnovationDayG5;
@@ -272,7 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UFE3YM6773;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InnovationDayG5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tigerspike.InnovationDayG5;
@@ -300,6 +327,7 @@
 				B6170A6B1DE68E910091EF28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
