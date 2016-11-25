@@ -183,8 +183,9 @@ class HomeViewModel: NSObject {
         
         let rangeOfNumeralMinutes = endIndexOfFor..<startIndexOfMinutes
         let numberOfMinutes = text.substring(with: rangeOfNumeralMinutes).trimmingCharacters(in: .whitespacesAndNewlines)
+        let fullMeetingName = "Extend \(meetingName)"
         
-        return (meetingName: meetingName, numberOfMinutes: numberOfMinutes)
+        return (meetingName: fullMeetingName, numberOfMinutes: numberOfMinutes)
     }
     
     func toggleLight() {

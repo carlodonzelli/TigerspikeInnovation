@@ -42,7 +42,7 @@ enum RequestType {
         case .CreateEvent(let meetingSchedule):
             return "/createevent?eventstring=\(meetingSchedule)"
         case .ExtendEvent(let meetingname, let minutes):
-            return "/extendevent?meetingname=\(meetingname)&timeinMinutes=\(minutes)"
+            return "/extend?meetingname=\(meetingname)&timeinMinutes=\(minutes)"
         }
     }
 }
