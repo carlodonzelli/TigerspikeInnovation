@@ -53,7 +53,7 @@ struct Network {
     
     static func eventRequest(httpMethod: HTTPMethod, requestType: RequestType, completionHandler: @escaping (Bool) -> Void) {
         
-        let baseURL = "http://giraffe.infra.tigerspike.com/Team5InnovationDay/api/calendar"
+        let baseURL = "http://vinh-pc.infra.tigerspike.com/Team5InnovationDay/api/calendar"
         let fullURL = baseURL + requestType.url
         
         let stringURL = fullURL.replacingOccurrences(of: " ", with: "%20")
@@ -64,6 +64,7 @@ struct Network {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print("error=\(error)")
+                completionHandler(false)
                 return
             }
             
@@ -71,6 +72,7 @@ struct Network {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
                 completionHandler(false)
+                return
             }
             
             let responseString = String(data: data, encoding: .utf8)
