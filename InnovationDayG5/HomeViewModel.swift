@@ -11,11 +11,15 @@ import Speech
 
 class HomeViewModel: NSObject {
     
+    // speech
     var speechAvailableBlock: ((Bool) -> Void)?
     let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-AU"))!
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    
+    // light
+    private var isLightOn = false
     
     func ViewModel() {
         speechRecognizer.delegate = self
@@ -53,6 +57,10 @@ class HomeViewModel: NSObject {
         return audioEngine.isRunning
     }
     
+    func areLightsOn() -> Bool {
+        return isLightOn
+    }
+    
     func stopAudioEngine() {
         audioEngine.stop()
         recognitionRequest?.endAudio()
@@ -79,17 +87,17 @@ class HomeViewModel: NSObject {
         
         guard let inputNode = audioEngine.inputNode else {
             fatalError("Audio engine has no input node")
-        }  //4
+        }
         
         guard let recognitionRequest = recognitionRequest else {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
-        } //5
+        }
         
         recognitionRequest.shouldReportPartialResults = true  //6
         
-        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in  //7
+        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             
-            var isFinal = false  //8
+            var isFinal = false
             
             if result != nil {
                 
@@ -124,8 +132,17 @@ class HomeViewModel: NSObject {
         handler("")
     }
     
-    func sendRequest(text: String, handler: @escaping (Bool) -> Void) {
+    func sendCalendarRequest(text: String, handler: @escaping (Bool) -> Void) {
         Network.eventRequest(httpMethod: .POST, requestType: .CreateEvent(text), completionHandler: handler)
+    }
+    
+    func toggleLight() {
+            Network.toggleLight(httpMethod: .POST, completionHandler: { success in
+                print("Light success: \(success)")
+                if success {
+                    self.isLightOn = !self.isLightOn
+                }
+            })
     }
     
 }

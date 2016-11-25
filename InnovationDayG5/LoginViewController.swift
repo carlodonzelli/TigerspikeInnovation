@@ -75,10 +75,12 @@ class LoginViewController: UIViewController {
 
 //MARK: - Private
 fileprivate extension LoginViewController {
+    
     func pushMainViewController() {
-        let homeViewController = HomeViewController()
-        navigationController?.pushViewController(homeViewController, animated: true)
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+            navigationController?.pushViewController(homeViewController, animated: true)
+        }
     }
 }
 

@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
+    @IBOutlet weak var lightBulbButton: UIButton!
     
     let viewModel = HomeViewModel()
     var userText: String?
@@ -38,7 +39,7 @@ extension HomeViewController {
             microphoneButton.isEnabled = false
             microphoneButton.setTitle("🎙", for: .normal)
             if let eventText = userText {
-            viewModel.sendRequest(text: eventText, handler: { (isEventCreated) in
+            viewModel.sendCalendarRequest(text: eventText, handler: { (isEventCreated) in
                 self.showError(with: "Success", message: "Event created")
             })
             }
@@ -50,6 +51,16 @@ extension HomeViewController {
             })
             microphoneButton.setTitle("🎶", for: .normal)
         }
+    }
+    
+    @IBAction func lightBulbTapped(_ sender: AnyObject) {
+        if viewModel.areLightsOn() {
+            lightBulbButton.setTitle("🌑", for: .normal)
+        } else {
+            lightBulbButton.setTitle("🌕", for: .normal)
+        }
+        viewModel.toggleLight()
+
     }
 }
 

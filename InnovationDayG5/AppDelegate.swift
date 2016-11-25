@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        startInitialScreen()
         
         return true
     }
@@ -44,21 +43,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-//MARK: - Private
-fileprivate extension AppDelegate {
-    func startInitialScreen() {
-        let vc = LoginViewController()
-        let nc = UINavigationController(rootViewController: vc)
-        nc.delegate = self
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = nc
-        window?.makeKeyAndVisible()
-    }
-}
-
-extension AppDelegate: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        viewController.edgesForExtendedLayout = []
-    }
-}
 
