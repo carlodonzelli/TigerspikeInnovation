@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
         
         setupView()
         setupSpeech()
+        viewModel.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,6 +76,12 @@ extension HomeViewController {
     }
 }
 
+extension HomeViewController: HomeViewModelDelegate {
+    
+    func showMessage(message: String) {
+        showError(message: message)
+    }
+}
 
 // private
 private extension HomeViewController {

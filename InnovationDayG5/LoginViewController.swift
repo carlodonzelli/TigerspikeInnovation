@@ -14,7 +14,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var touchIdButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton! {
+        didSet {
+            let bgImg = UIImage.withColor(UIColor(red: 1, green: 102/255, blue: 51/255, alpha: 1))
+            loginButton.setBackgroundImage(bgImg, for: .normal)
+            loginButton.layer.cornerRadius = 6.0
+            
+        }
+    }
     
     let viewModel = LoginViewModel()
     

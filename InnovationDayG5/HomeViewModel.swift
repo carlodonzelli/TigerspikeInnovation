@@ -9,6 +9,11 @@
 import Foundation
 import Speech
 
+protocol HomeViewModelDelegate: class {
+    
+    func showMessage(message: String)
+}
+
 class HomeViewModel: NSObject {
     
     // speech
@@ -20,6 +25,8 @@ class HomeViewModel: NSObject {
     
     // light
     private var isLightOn = false
+    
+    weak var delegate: HomeViewModelDelegate?
     
     func ViewModel() {
         speechRecognizer.delegate = self
@@ -134,36 +141,45 @@ class HomeViewModel: NSObject {
     
     func sendCalendarRequest(text: String, handler: @escaping (Bool) -> Void) {
     
-        let eventType = eventTypeForString(text: text)
-        Network.eventRequest(httpMethod: .POST, requestType: eventType, completionHandler: handler)
+        if let eventType = eventTypeForString(text: text) {
+            Network.eventRequest(httpMethod: .POST, requestType: eventType, completionHandler: handler)
+        } else {
+            delegate?.showMessage(message: "Sorry, I don't understand")
+        }
     }
     
-    func eventTypeForString(text: String) -> RequestType {
+    func eventTypeForString(text: String) -> RequestType? {
         if text.lowercased().hasPrefix("extend") {
             
-            let (meetingName, numberOfMinutes) = extractExtendEventInfo(text: text)
-            
-            return .ExtendEvent(meetingName, numberOfMinutes)
+            if let (meetingName, numberOfMinutes) = extractExtendEventInfo(text: text) {
+                return .ExtendEvent(meetingName, numberOfMinutes)
+            } else {
+                return nil
+            }
             
         } else {
             return .CreateEvent(text)
         }
     }
     
-    func extractExtendEventInfo(text: String) -> (meetingName: String, numberOfMinutes: String) {
+    func extractExtendEventInfo(text: String) -> (meetingName: String, numberOfMinutes: String)? {
         let meetingNameStartIndex = text.index(text.startIndex, offsetBy: 7)
         
-        let rangeOfFor = text.range(of: "for")
+        guard let rangeOfFor = text.range(of: "for") else {
+            return nil
+        }
         
-        let startIndexOfFor = rangeOfFor!.lowerBound
+        let startIndexOfFor = rangeOfFor.lowerBound
         
         let rangeOfMeetingName = meetingNameStartIndex..<startIndexOfFor
         let meetingName = text.substring(with: rangeOfMeetingName).trimmingCharacters(in: .whitespacesAndNewlines)
         
-        let rangeOfMinutes = text.range(of: "minute")
+        guard let rangeOfMinutes = text.range(of: "minute") else {
+            return nil
+        }
         
-        let endIndexOfFor = rangeOfFor!.upperBound
-        let startIndexOfMinutes = rangeOfMinutes!.lowerBound
+        let endIndexOfFor = rangeOfFor.upperBound
+        let startIndexOfMinutes = rangeOfMinutes.lowerBound
         
         let rangeOfNumeralMinutes = endIndexOfFor..<startIndexOfMinutes
         let numberOfMinutes = text.substring(with: rangeOfNumeralMinutes).trimmingCharacters(in: .whitespacesAndNewlines)
