@@ -10,7 +10,7 @@ import UIKit
 import LocalAuthentication
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var touchIdButton: UIButton!
@@ -40,13 +40,13 @@ class LoginViewController: UIViewController {
         authenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Login via touch ID") {
             success, error in
             
-           DispatchQueue.main.async {
-            
-            if success {
-                self.pushMainViewController()
-            } else {
-                self.showError(message: error?.localizedDescription ?? "")
-            }
+            DispatchQueue.main.async {
+                
+                if success {
+                    self.pushMainViewController()
+                } else {
+                    self.showError(message: error?.localizedDescription ?? "")
+                }
             }
         }
         

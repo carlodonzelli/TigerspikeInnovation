@@ -125,7 +125,43 @@ class HomeViewModel: NSObject {
     }
     
     func sendRequest(text: String, handler: @escaping (Bool) -> Void) {
-        Network.eventRequest(httpMethod: .POST, requestType: .CreateEvent(text), completionHandler: handler)
+        
+        let eventType = eventTypeForString(text: text)
+        
+        Network.eventRequest(httpMethod: .POST, requestType: eventType, completionHandler: handler)
+    }
+    
+    func eventTypeForString(text: String) -> RequestType {
+        if text.lowercased().hasPrefix("extend") {
+            
+            let (meetingName, numberOfMinutes) = extractExtendEventInfo(text: text)
+            
+            return .ExtendEvent(meetingName, numberOfMinutes)
+            
+        } else {
+            return .CreateEvent(text)
+        }
+    }
+    
+    func extractExtendEventInfo(text: String) -> (meetingName: String, numberOfMinutes: String) {
+        let meetingNameStartIndex = text.index(text.startIndex, offsetBy: 7)
+        
+        let rangeOfFor = text.range(of: "for")
+        
+        let startIndexOfFor = rangeOfFor!.lowerBound
+        
+        let rangeOfMeetingName = meetingNameStartIndex..<startIndexOfFor
+        let meetingName = text.substring(with: rangeOfMeetingName).trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let rangeOfMinutes = text.range(of: "minute")
+        
+        let endIndexOfFor = rangeOfFor!.upperBound
+        let startIndexOfMinutes = rangeOfMinutes!.lowerBound
+        
+        let rangeOfNumeralMinutes = endIndexOfFor..<startIndexOfMinutes
+        let numberOfMinutes = text.substring(with: rangeOfNumeralMinutes).trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return (meetingName: meetingName, numberOfMinutes: numberOfMinutes)
     }
     
 }

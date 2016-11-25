@@ -9,16 +9,8 @@
 import Foundation
 
 class LoginViewModel {
-    var username = "" {
-        didSet {
-            print(username)
-        }
-    }
-    var password = "" {
-        didSet {
-            print(password)
-        }
-    }
+    var username = ""
+    var password = ""
 }
 
 //MARK: - Public

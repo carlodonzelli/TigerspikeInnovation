@@ -37,10 +37,19 @@ extension HomeViewController {
         
             microphoneButton.isEnabled = false
             microphoneButton.setTitle("🎙", for: .normal)
+            
             if let eventText = userText {
-            viewModel.sendRequest(text: eventText, handler: { (isEventCreated) in
-                self.showError(with: "Success", message: "Event created")
-            })
+                viewModel.sendRequest(text: eventText, handler: { (isEventCreated) in
+                    if isEventCreated {
+                        self.showError(with: "Success", message: "Event created or extended")
+                        self.microphoneButton.isEnabled = true
+                        self.viewModel.stopAudioEngine()
+                    } else {
+                        self.showError(message: "Request failed")
+                    }
+                })
+            } else {
+                self.showError(message: "Nothing was said")
             }
         } else {
             

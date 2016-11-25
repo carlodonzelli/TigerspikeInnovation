@@ -36,7 +36,7 @@ enum RequestType {
         case .CreateEvent(let meetingSchedule):
             return "/createevent?eventstring=\(meetingSchedule)"
         case .ExtendEvent(let meetingname, let minutes):
-            return "/createevent?meetingname=\(meetingname)&timeinMinutes=\(minutes)"
+            return "/extendevent?meetingname=\(meetingname)&timeinMinutes=\(minutes)"
         }
     }
 }
@@ -48,12 +48,13 @@ struct Network {
     
     static func eventRequest(httpMethod: HTTPMethod, requestType: RequestType, completionHandler: @escaping (Bool) -> Void) {
         
-        let baseURL = "http://vinh-pc.infra.tigerspike.com/Team5InnovationDay/api/calendar"
+//        let baseURL = "http://vinh-pc.infra.tigerspike.com/Team5InnovationDay/api/calendar"
+        let baseURL = "http://giraffe.infra.tigerspike.com/Team5InnovationDay/api/calendar"
         let fullURL = baseURL + requestType.url
         
         let stringURL = fullURL.replacingOccurrences(of: " ", with: "%20")
 
-        var request = URLRequest(url: URL(string: "\(baseURL)\(stringURL)")!)
+        var request = URLRequest(url: URL(string: stringURL)!)
         request.httpMethod = httpMethod.description
         
         
@@ -63,7 +64,7 @@ struct Network {
                 return
             }
             
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            if let httpStatus = response as? HTTPURLResponse, self.isNotSuccess(statusCode: httpStatus.statusCode) {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
                 completionHandler(false)
@@ -74,5 +75,9 @@ struct Network {
             completionHandler(true)
         }
         task.resume()
+    }
+    
+    fileprivate static func isNotSuccess(statusCode: Int) -> Bool {
+        return statusCode < 200 || statusCode > 299
     }
 }
