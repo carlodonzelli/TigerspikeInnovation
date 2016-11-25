@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
         setupUsernameField()
         setupPasswordField()
     }
@@ -78,6 +79,10 @@ class LoginViewController: UIViewController {
             viewModel.password = textField.text ?? ""
         }
     }
+    
+    func backgroundTapped() {
+        view.endEditing(false)
+    }
 }
 
 //MARK: - Private
@@ -93,6 +98,11 @@ fileprivate extension LoginViewController {
 
 //MARK: - Setup
 fileprivate extension LoginViewController {
+    func setupView() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(backgroundTapped))
+        view.addGestureRecognizer(tap)
+    }
+    
     func setupUsernameField() {
         usernameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
